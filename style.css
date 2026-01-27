@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #1a1a1a;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.app {
+    width: 100%;
+    max-width: 400px;
+    background: #000000;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    border: 1px solid #333333;
+}
+
+.app h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #d4af37;
+    font-size: 28px;
+}
+
+.input-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid #333333;
+    background: #1a1a1a;
+    color: #ffffff;
+    font-size: 15px;
+    outline: none;
+}
+
+.input-box input:focus {
+    border-color: #d4af37;
+}
+
+.input-box button {
+    width: 50px;
+    border: none;
+    border-radius: 8px;
+    background: #d4af37;
+    color: #000000;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-box button:hover {
+    background: #b8941f;
+}
+
+#todoList {
+    list-style: none;
+}
+
+.todo-item {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-item:hover {
+    background: #2a2a2a;
+    border-color: #d4af37;
+}
+
+.todo-text {
+    color: #ffffff;
+    font-size: 15px;
+    flex: 1;
+}
+
+.delete-btn {
+    background: #666666;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background: #d4af37;
+    color: #000000;
+}
+
+.todo-id {
+    font-size: 12px;
+    color: #999999;
+    margin-right: 10px;
+}
+
+.empty-message {
+    text-align: center;
+    color: #666666;
+    padding: 20px;
+    font-style: italic;
+}
