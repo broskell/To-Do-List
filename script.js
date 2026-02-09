@@ -11,6 +11,7 @@ let todos = [
 let list = document.getElementById("todoList");
 let input = document.getElementById("todoInput");
 let button = document.getElementById("addBtn");
+let clear = document.getElementById("clearBtn");
 
 function showTodos() {
     let html = '';
@@ -30,6 +31,11 @@ button.onclick = function() {
         id : todos.length + 1,
         todo: task
     });
+    showTodos();
+}
+
+clear.onclick = function() {
+    todos = [];
     showTodos();
 }
 
