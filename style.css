@@ -52,25 +52,36 @@ body {
 
 #todoList {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-.todo-item {
+#todoList > div {
     padding: 10px;
     border: 1px solid #00ff00;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.todo-text {
+#todoList > div > span:first-child {
+    flex: 1;
+    margin-right: 15px;
     color: #00ff00;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
-.todo-item.completed .todo-text {
+#todoList > div > span:first-child.completed {
     text-decoration: line-through;
     color: #006600;
+}
+
+.todo-id {
+    font-size: 12px;
+    color: #00ff00;
+    margin-right: 10px;
+    font-weight: bold;
 }
 
 .delete-btn {
@@ -80,20 +91,12 @@ body {
     padding: 5px 10px;
     cursor: pointer;
     font-size: 12px;
-    /* display: flex;
-    justify-content: flex-end; */
+    white-space: nowrap;
 }
 
 .delete-btn:hover {
     background: #00ff00;
     color: #000000;
-}
-
-.todo-id {
-    font-size: 12px;
-    color: #00ff00;
-    margin-right: 10px;
-    font-weight: bold;
 }
 
 .empty-message {

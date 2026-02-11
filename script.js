@@ -16,7 +16,10 @@ let clear = document.getElementById("clearBtn");
 function showTodos() {
     let html = '';
     for(let i = 0; i < todos.length; i++) {
-        html += todos[i].id + '. ' + todos[i].todo + '<button class="delete-btn" onclick="deleteBtn(' + todos[i].id + ')"> Delete </button>' + '<br>';
+        html += `<div>
+                    <span onclick="updateTodo(${todos[i].id})">${todos[i].id}. ${todos[i].todo}</span>
+                    <button class="delete-btn" onclick="deleteBtn(${todos[i].id})">Delete</button>
+                </div>`;
     }
     list.innerHTML = html;
     input.value = '';
@@ -44,6 +47,18 @@ function deleteBtn(id) {
         return item.id != id 
     });
     showTodos();    
+}
+
+function updateTodo(id) {
+    for(let i = 0; i < todos.length; i++) {
+        if(todos[i].id === id) {
+            todos[i].todo = prompt("Edit task:", todos[i].todo);
+            if(todos[i].todo === null || todos[i].todo.trim() === '') {
+                todos[i].todo = 'Untitled Task';
+            }
+            showTodos();
+        }
+    }
 }
 
 showTodos();
