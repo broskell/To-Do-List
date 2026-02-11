@@ -16,7 +16,7 @@ let clear = document.getElementById("clearBtn");
 function showTodos() {
     let html = '';
     for(let i = 0; i < todos.length; i++) {
-        html += todos[i].id + '. ' + todos[i].todo + '<br>';
+        html += todos[i].id + '. ' + todos[i].todo + '<button class="delete-btn" onclick="deleteBtn(' + todos[i].id + ')"> Delete </button>' + '<br>';
     }
     list.innerHTML = html;
     input.value = '';
@@ -37,6 +37,13 @@ button.onclick = function() {
 clear.onclick = function() {
     todos = [];
     showTodos();
+}
+
+function deleteBtn(id) {
+    todos = todos.filter(function(item) { 
+        return item.id != id 
+    });
+    showTodos();    
 }
 
 showTodos();
