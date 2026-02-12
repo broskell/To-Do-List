@@ -61,6 +61,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 5px;
 }
 
 #todoList > div > span:first-child {
@@ -72,11 +73,6 @@ body {
     align-items: center;
 }
 
-#todoList > div > span:first-child.completed {
-    text-decoration: line-through;
-    color: #006600;
-}
-
 .todo-id {
     font-size: 12px;
     color: #00ff00;
@@ -84,7 +80,7 @@ body {
     font-weight: bold;
 }
 
-.done-btn {
+.btn {
     background: #000000;
     color: #00ff00;
     border: 1px solid #00ff00;
@@ -94,7 +90,7 @@ body {
     white-space: nowrap;
 }
 
-.done-btn:hover {
+.btn:hover {
     background: #00ff00;
     color: #000000;
 }

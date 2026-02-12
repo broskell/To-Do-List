@@ -12,8 +12,9 @@ function showTodo() {
     let html = ``;
     for (let i = 0; i < todos.length; i++) {
         html += `<div>
-                    <span onclick="updateBtn(${todos[i].id})">${todos[i].id}. ${todos[i].todo}</span>
-                    <button class="done-btn" onclick="doneBtn(${todos[i].id})">Done</button>
+                    <span onclick="markAsDone(${todos[i].id})">${todos[i].id}.${todos[i].todo}</span>
+                    <button class="btn" onclick="editBtn(${todos[i].id})">Edit</button>
+                    <button class="btn" onclick="deleteBtn(${todos[i].id})">Delete</button>
                     <br>
                 </div>`
     }
@@ -33,20 +34,29 @@ clearBtn.onclick = function() {
     showTodo();
 }
 
-function doneBtn(id) {
+function deleteBtn(id) {
     todos = todos.filter(function(item){
         return item.id !== id;
     })
     showTodo();
 }
 
-function updateBtn(id) {
+function editBtn(id) {
     for (let i = 0; i < todos.length; i++) {
         if (todos[i].id == id) {
             todos[i].todo = prompt(`Enter a value`, todos[i].todo);
             if (todos[i].todo === null || todos[i].todo === "") {
                 todos[i].todo = `Untitled`;
             }
+        }
+    }
+    showTodo();
+}
+
+function markAsDone(id) {
+    for (let i = 0; i < todos.length; i++) {
+        if (todos[i].id == id) {
+            todos[i].todo = `<s>${todos[i].todo}</s>`;
         }
     }
     showTodo();
