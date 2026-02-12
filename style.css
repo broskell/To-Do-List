@@ -84,7 +84,7 @@ body {
     font-weight: bold;
 }
 
-.delete-btn {
+.done-btn {
     background: #000000;
     color: #00ff00;
     border: 1px solid #00ff00;
@@ -94,7 +94,7 @@ body {
     white-space: nowrap;
 }
 
-.delete-btn:hover {
+.done-btn:hover {
     background: #00ff00;
     color: #000000;
 }
