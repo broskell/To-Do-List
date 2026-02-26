@@ -8,6 +8,9 @@ todoList = document.getElementById(`todoList`);
 addBtn = document.getElementById(`addBtn`);
 clearBtn = document.getElementById(`clearBtn`);
 
+editMode = false;
+editId = null;
+
 function showTodo() {
     let html = ``;
     for (let i = 0; i < todos.length; i++) {
@@ -22,10 +25,24 @@ function showTodo() {
 }
 
 addBtn.onclick = function() {
-    newTodo = input.value;
-    todos.push({id: todos.length + 1, todo: newTodo});
+    let newTodo = input.value;
+    
+    if(editMode) {
+        for (let i = 0; i < todos.length; i++) {
+            if (todos[i].id == editId) {
+                todos[i].todo = newTodo;
+            }
+            input.value = '';
+            editMode = false;
+            editId = null;
+            document.getElementById(`addBtn`).innerText = `Add`;
+            input.style.backgroundColor = 'black';
+        }
+    } else {
+        todos.push({id: todos.length + 1, todo: newTodo});
+        input.value = '';
+    }
 
-    input.value = '';
     showTodo();
 }
 
@@ -42,14 +59,15 @@ function deleteBtn(id) {
 }
 
 function editBtn(id) {
+    editMode = true;
+    editId = id;
     for (let i = 0; i < todos.length; i++) {
+        input.style.backgroundColor = '#f0f0f05b';
         if (todos[i].id == id) {
-            todos[i].todo = prompt(`Enter a value`, todos[i].todo);
-            if (todos[i].todo === null || todos[i].todo === "") {
-                todos[i].todo = `Untitled`;
-            }
+            input.value = todos[i].todo;
         }
     }
+    document.getElementById(`addBtn`).innerText = `Save`;
     showTodo();
 }
 
